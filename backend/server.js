@@ -8,7 +8,13 @@ const cors = require('cors')
 const app = express();
 const path = require("path")  //for buid project
 
-app.use(cors());
+app.use(cors(
+    {
+        origin: ["https:/deploy-mern-1whq.vercel.app"],
+        methods: ["POST", "GET"],
+        credentials:true
+    }
+));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, './frontend/build')))
 app.use((req, res, next) => {
@@ -16,7 +22,9 @@ app.use((req, res, next) => {
     next();
 })
 
-
+app.get("/", (req,res) => {
+    res.json("salam")
+})
 // routes 
 app.use('/api/user',authroutes);
 app.use('/api/category',categoryRoutes)
