@@ -10,7 +10,7 @@ const path = require("path")  //for buid project
 
 app.use(cors(
     {
-        origin: ["https:/deploy-mern-1whq.vercel.app"],
+        origin: ["https://talha-yaseen-ecommerce-frontend.vercel.app"],
         methods: ["POST", "GET"],
         credentials:true
     }
