@@ -26,10 +26,10 @@ app.use("*", function(req,res) {
     res.sendFile(path.join(__dirname,  "./frontend/build/index.html"))
 })
 
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(mongodb+srv://talha:test123@cluster1.iwnzu.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster1)
 .then(()=> {
     app.listen(process.env.PORT, ()=> {
-        console.log('connected to database and listening on port ', process.env.PORT)
+        console.log('connected to database and listening on port ', 4000)
     }) 
 })
 .catch((error)=> {
