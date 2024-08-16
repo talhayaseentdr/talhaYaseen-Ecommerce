@@ -29,10 +29,10 @@ app.use('/api/user',authroutes);
 app.use('/api/category',categoryRoutes)
 app.use('/api/product',productRoutes)
 
-mongoose.connect(mongodb+srv://talha:test123@cluster1.iwnzu.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster1)
+mongoose.connect(process.env.MONGO_URI)
 .then(()=> {
-    app.listen(4000, ()=> {
-        console.log('connected to database and listening on port ', 4000)
+    app.listen(process.env.PORT, ()=> {
+        console.log('connected to database and listening ')
     }) 
 })
 .catch((error)=> {
